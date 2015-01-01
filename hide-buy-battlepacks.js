@@ -4,7 +4,7 @@
  *
  * @author atresova
  * @version 1.0.0
- * @url https://github.com/XjSv/BBLog-Remove-Buy-BattlePacks/hide-buy-battlepacks.js
+ * @url http://dapil.github.io/general-enhancements-bblog/general-enhancements.js
  * @last-edit 1. 1. 2015 18:12
  */
 
