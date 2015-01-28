@@ -21,15 +21,11 @@ BBLog.handle("add.plugin", {
     translations : {
         "en" : {
             "option.remove-buy-battlepacks" : "Remove the 'BUY BATTLEPACKS' box in the Battlepacks page",
+            "option.remove-side-bar"        : "Remove the right sidebar in the landing page",
         },
         "de" : {
             "option.remove-buy-battlepacks" : "Remove the 'BUY BATTLEPACKS' box in the Battlepacks page",
-        },
-        "en" : {
-            "option.remove-side-bar" : "Remove the right sidebar in the landing page",
-        },
-        "de" : {
-            "option.remove-side-bar" : "Remove the right sidebar in the landing page",
+            "option.remove-side-bar"        : "Remove the right sidebar in the landing page",
         },
     },
 
