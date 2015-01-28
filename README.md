@@ -1,5 +1,5 @@
-BBLog-Additional-Enhancements previously knows as: BBLog-Remove-Buy-BattlePacks
-============================
+## BBLog-Additional-Enhancements 
+###### Previously knows as: ~~BBLog-Remove-Buy-BattlePacks~~
 
 BBLog Plugin for removing and hiding various elements in BattleLog.
 
