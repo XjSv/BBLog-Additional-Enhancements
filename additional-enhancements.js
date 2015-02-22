@@ -3,9 +3,9 @@
  *  - ideas by Armand Tresova
  *
  * @author xjsv
- * @version 1.1.3
+ * @version 1.2.1
  * @url https://raw.githubusercontent.com/XjSv/BBLog-Additional-Enhancements/master/additional-enhancements.js
- * @last-edit 2.21.2015 22:00
+ * @last-edit 2.22.2015 01:00
  */
 
 BBLog.handle("add.plugin", {
@@ -15,6 +15,7 @@ BBLog.handle("add.plugin", {
 
     configFlags : [
         ["option.remove-buy-battlepacks", 0],
+        ["option.remove-tiles",           0],
         ["option.remove-side-bar",        0],
     ],
 
@@ -22,12 +23,16 @@ BBLog.handle("add.plugin", {
         "en" : {
             "option.remove-buy-battlepacks"         : "Remove the 'BUY BATTLEPACKS' box in the Battlepacks page",
             "option.remove-buy-battlepacks.tooltip" : "Removes the 'BUY BATTLEPACKS' box above the 'UPCOMING RANK BATTLEPACKS' box in the Battlepacks page.",
+            "option.remove-tiles"                   : "Remove the tiles below the 'TOP STORY' in the landing page",
+            "option.remove-tiles.tooltip"           : "Removes the tiles below the 'TOP STORY' in the landing page (battlelog.battlefield.com/bf4/).",
             "option.remove-side-bar"                : "Remove the right sidebar in the landing page",
             "option.remove-side-bar.tooltip"        : "Removes the right sidebar in the landing page (battlelog.battlefield.com/bf4/) and expands the battle feed.",
         },
         "de" : {
             "option.remove-buy-battlepacks"         : "Remove the 'BUY BATTLEPACKS' box in the Battlepacks page",
             "option.remove-buy-battlepacks.tooltip" : "Removes the 'BUY BATTLEPACKS' box in the Battlepacks page.",
+            "option.remove-tiles"                   : "Remove the tiles below the 'TOP STORY' in the landing page",
+            "option.remove-tiles.tooltip"           : "Removes the tiles below the 'TOP STORY' in the landing page (battlelog.battlefield.com/bf4/).",
             "option.remove-side-bar"                : "Remove the right sidebar in the landing page",
             "option.remove-side-bar.tooltip"        : "Removes the right sidebar in the landing page and expands the battle feed.",
         },
@@ -36,6 +41,7 @@ BBLog.handle("add.plugin", {
     init : function(instance) {
         if(BBLog.cache("mode") == "bf4") {
           instance.removeBuyBattlePacks(instance);
+          instance.removeTiles(instance);
           instance.removeSideBar(instance);
         }
     },
@@ -43,6 +49,7 @@ BBLog.handle("add.plugin", {
     domchange : function(instance) {
         if(BBLog.cache("mode") == "bf4") {
           instance.removeBuyBattlePacks(instance);
+          instance.removeTiles(instance);
           instance.removeSideBar(instance);
         }
     },
@@ -51,6 +58,13 @@ BBLog.handle("add.plugin", {
         var url = window.location.href;
         if(instance.storage("option.remove-buy-battlepacks") && url.match(/\/battlepacks\//) && $(".battlepacks-buypacks").length > 0) {
            $(".battlepacks-buypacks").remove();
+        }
+    },
+
+    removeTiles : function(instance) {
+        var path = window.location.pathname;
+        if(instance.storage("option.remove-tiles") && path == '/bf4/' && $("#bottom-tiles").length > 0) {
+            $("#bottom-tiles").remove();
         }
     },
 
