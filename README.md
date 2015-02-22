@@ -1,7 +1,7 @@
-## BBLog-Additional-Enhancements 
-###### Previously knows as: ~~BBLog-Remove-Buy-BattlePacks~~
+## BBLog Additional Enhancements 
+###### Previously knows as: ~~BBLog Remove Buy BattlePacks~~
 
-BBLog Plugin for removing and hiding various elements in BattleFields 4's BattleLog. This plugin only supports Battlefield 4 (BF4).
+BBLog Plugin for removing and hiding various elements in Battlefields 4's BattleLog. This plugin only supports Battlefield 4 (BF4).
 
 As of right now there are 3 options:  
 1 - Removes the 'BUY BATTLEPACKS' box above the 'UPCOMING RANK BATTLEPACKS' box in the Battlepacks page.  
