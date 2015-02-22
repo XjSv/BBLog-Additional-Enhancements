@@ -3,9 +3,9 @@
  *  - ideas by Armand Tresova
  *
  * @author xjsv
- * @version 1.1.2
+ * @version 1.1.3
  * @url https://raw.githubusercontent.com/XjSv/BBLog-Additional-Enhancements/master/additional-enhancements.js
- * @last-edit 1.28.2015 13:25
+ * @last-edit 2.21.2015 22:00
  */
 
 BBLog.handle("add.plugin", {
@@ -20,12 +20,16 @@ BBLog.handle("add.plugin", {
 
     translations : {
         "en" : {
-            "option.remove-buy-battlepacks" : "Remove the 'BUY BATTLEPACKS' box in the Battlepacks page",
-            "option.remove-side-bar"        : "Remove the right sidebar in the landing page",
+            "option.remove-buy-battlepacks"         : "Remove the 'BUY BATTLEPACKS' box in the Battlepacks page",
+            "option.remove-buy-battlepacks.tooltip" : "Removes the 'BUY BATTLEPACKS' box above the 'UPCOMING RANK BATTLEPACKS' box in the Battlepacks page.",
+            "option.remove-side-bar"                : "Remove the right sidebar in the landing page",
+            "option.remove-side-bar.tooltip"        : "Removes the right sidebar in the landing page (battlelog.battlefield.com/bf4/) and expands the battle feed.",
         },
         "de" : {
-            "option.remove-buy-battlepacks" : "Remove the 'BUY BATTLEPACKS' box in the Battlepacks page",
-            "option.remove-side-bar"        : "Remove the right sidebar in the landing page",
+            "option.remove-buy-battlepacks"         : "Remove the 'BUY BATTLEPACKS' box in the Battlepacks page",
+            "option.remove-buy-battlepacks.tooltip" : "Removes the 'BUY BATTLEPACKS' box in the Battlepacks page.",
+            "option.remove-side-bar"                : "Remove the right sidebar in the landing page",
+            "option.remove-side-bar.tooltip"        : "Removes the right sidebar in the landing page and expands the battle feed.",
         },
     },
 
