@@ -5,7 +5,7 @@
  * @author xjsv
  * @version 1.4.0
  * @url https://raw.githubusercontent.com/XjSv/BBLog-Additional-Enhancements/master/additional-enhancements.js
- * @last-edit 12.28.2015 17:10
+ * @last-edit 12.29.2015 00:30
  */
 
 BBLog.handle("add.plugin", {
@@ -19,7 +19,8 @@ BBLog.handle("add.plugin", {
         ["option.remove-side-bar",        0],
         ["option.remove-buy-hardline",    0],
         ["option.remove-comcenter",       0],
-        ["option.remove-cookiebar",       0]
+        ["option.remove-cookiebar",       0],
+        ["option.remove-radar-servers",   0]
     ],
 
     translations : {
@@ -35,7 +36,9 @@ BBLog.handle("add.plugin", {
             "option.remove-comcenter"               : "Remove the Com Center panel on the right",
             "option.remove-comcenter.tooltip"       : "Removed the Com Center on the right of all BF4 Battlelog Pages and widens the Top bar.",
             "option.remove-cookiebar"               : "Remove the EU Cookie Agreement Bottom bar entirely",
-            "option.remove-cookiebar.tooltip"       : "Removes the Cookie Agreement Bar at the bottom of the page entirely (including the close button thing)"
+            "option.remove-cookiebar.tooltip"       : "Removes the Cookie Agreement Bar at the bottom of the page entirely (including the close button thing)",
+            "option.remove-radar-servers"           : "Hide Servers on Radar",
+            "option.remove-radar-servers.tooltip"   : "Removes servers you have on radar from the server browser result list."
         },
         "de" : {
             "option.remove-buy-battlepacks"         : "Entferne 'Battlepacks kaufen' von Battlepack Seite",
@@ -49,7 +52,9 @@ BBLog.handle("add.plugin", {
             "option.remove-comcenter"               : "Entferne Com Center",
             "option.remove-comcenter.tooltip"       : "Entfernt das ComCenter am rechten Bildschirmrand auf allen (BF4) Seiten im Battlelog und passt die Breite an.",
             "option.remove-cookiebar"               : "Entferne Cookie Zustimmung",
-            "option.remove-cookiebar.tooltip"       : "Entfernt die Cookie Zustimmungsleiste am unteren Bildschirmrand komplett."
+            "option.remove-cookiebar.tooltip"       : "Entfernt die Cookie Zustimmungsleiste am unteren Bildschirmrand komplett.",
+            "option.remove-radar-servers"           : "Entferne blockierte Server (Server Radar)",
+            "option.remove-radar-servers.tooltip"   : "Entfernt Server die zum Radar hinzugefügt wurden aus den Ergebnissen im Serverbrowser."
         },
     },
 
@@ -61,6 +66,7 @@ BBLog.handle("add.plugin", {
             instance.removeBuyHardline(instance);
             instance.removeComCenter(instance);
             instance.removeCookieBar(instance);
+            instance.removeBlockedServers(instance);
         }
     },
 
@@ -72,6 +78,7 @@ BBLog.handle("add.plugin", {
             instance.removeBuyHardline(instance);
             instance.removeComCenter(instance);
             instance.removeCookieBar(instance);
+            instance.removeBlockedServers(instance);
         }
     },
 
@@ -120,6 +127,14 @@ BBLog.handle("add.plugin", {
     removeCookieBar: function (instance) {
         if (instance.storage("option.remove-cookiebar") && window.location.pathname.substr(0, 5) == '/bf4/' && $('#cookie-preferences').length > 0) {
             $('#cookie-preferences').remove();
+        }
+    },
+
+    removeBlockedServers: function (instance) {
+        if (instance.storage("option.remove-radar-servers") && window.location.pathname.substr(0, 13) == '/bf4/servers/' && $('tr.bblog-bf4-redbg').length > 0) {
+            $('tr.bblog-bf4-redbg').each(function (idx) {
+                $(this).remove();
+            });
         }
     }
 });
