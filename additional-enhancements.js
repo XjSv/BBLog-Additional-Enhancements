@@ -3,7 +3,7 @@
  *  - ideas by Armand Tresova
  *
  * @author xjsv
- * @version 1.3.0
+ * @version 1.4.0
  * @url https://raw.githubusercontent.com/XjSv/BBLog-Additional-Enhancements/master/additional-enhancements.js
  * @last-edit 12.28.2015 17:10
  */
