@@ -3,7 +3,7 @@
  *  - ideas by Armand Tresova
  *
  * @author xjsv
- * @version 1.4.0
+ * @version 1.5.0
  * @url https://raw.githubusercontent.com/XjSv/BBLog-Additional-Enhancements/master/additional-enhancements.js
  * @last-edit 12.29.2015 11:30
  */
@@ -72,7 +72,7 @@ BBLog.handle("add.plugin", {
             instance.removeComCenter(instance);
             instance.removeCookieBar(instance);
             instance.removeBlockedServers(instance);
-            instance.removeRecomendedServers(instance);
+            instance.removeRecommendedServers(instance);
         }
     },
 
@@ -85,7 +85,7 @@ BBLog.handle("add.plugin", {
             instance.removeComCenter(instance);
             instance.removeCookieBar(instance);
             instance.removeBlockedServers(instance);
-            instance.removeRecomendedServers(instance);
+            instance.removeRecommendedServers(instance);
         }
     },
 
@@ -145,7 +145,7 @@ BBLog.handle("add.plugin", {
         }
     },
 
-    removeRecomendedServers: function (instance) {
+    removeRecommendedServers: function (instance) {
         if (instance.storage("option.remove-recom-servers") && window.location.pathname.substr(0, 13) == '/bf4/servers/' && $('#serverbrowser-recommended-servers').length > 0) {
             $('#serverbrowser-recommended-servers').remove();
         }
