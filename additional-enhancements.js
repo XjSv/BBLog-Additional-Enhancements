@@ -19,6 +19,7 @@ BBLog.handle("add.plugin", {
         ["option.remove-side-bar",        0],
         ["option.remove-buy-hardline",    0],
         ["option.remove-comcenter",       0],
+		["option.remove-app-promotion",   0],
         ["option.remove-cookiebar",       0],
         ["option.remove-radar-servers",   0],
         ["option.remove-recom-servers",   0]
@@ -36,6 +37,8 @@ BBLog.handle("add.plugin", {
             "option.remove-buy-hardline.tooltip"    : "Removes Battlefield Hardline advertisement (BUY NOW) in the landing page (battlelog.battlefield.com/bf4/).",
             "option.remove-comcenter"               : "Remove the Com Center panel on the right",
             "option.remove-comcenter.tooltip"       : "Removed the Com Center on the right of all BF4 Battlelog Pages and widens the Top bar.",
+			"option.remove-app-promotion" 			: "Remove app promotion advertisement",
+			"option.remove-app-promotion.tooltip"	: "Removes the app promotion from the bottom of the com center.",
             "option.remove-cookiebar"               : "Remove the EU Cookie Agreement Bottom bar entirely",
             "option.remove-cookiebar.tooltip"       : "Removes the Cookie Agreement Bar at the bottom of the page entirely (including the close button thing)",
             "option.remove-radar-servers"           : "Hide Servers on Radar",
@@ -54,6 +57,8 @@ BBLog.handle("add.plugin", {
             "option.remove-buy-hardline.tooltip"    : "Entfernt den 'Hardline kaufen' Werbeblock von der Startseite (battlelog.battlefield.com/bf4/).",
             "option.remove-comcenter"               : "Entferne Com Center",
             "option.remove-comcenter.tooltip"       : "Entfernt das ComCenter am rechten Bildschirmrand auf allen (BF4) Seiten im Battlelog und passt die Breite an.",
+			"option.remove-app-promotion" 			: "Entferne Battlelog App Werbung",
+			"option.remove-app-promotion.tooltip"	: "Entfernt die Battlelog App Werbung aus dem unteren Bereich des ComCenters auf der rechten Seite.",
             "option.remove-cookiebar"               : "Entferne Cookie Zustimmung",
             "option.remove-cookiebar.tooltip"       : "Entfernt die Cookie Zustimmungsleiste am unteren Bildschirmrand komplett.",
             "option.remove-radar-servers"           : "Entferne blockierte Server (Server Radar)",
@@ -73,6 +78,7 @@ BBLog.handle("add.plugin", {
             instance.removeCookieBar(instance);
             instance.removeBlockedServers(instance);
             instance.removeRecommendedServers(instance);
+			instance.removeAppAd(instance);
         }
     },
 
@@ -86,6 +92,7 @@ BBLog.handle("add.plugin", {
             instance.removeCookieBar(instance);
             instance.removeBlockedServers(instance);
             instance.removeRecommendedServers(instance);
+			instance.removeAppAd(instance);
         }
     },
 
@@ -149,5 +156,11 @@ BBLog.handle("add.plugin", {
         if (instance.storage("option.remove-recom-servers") && window.location.pathname.substr(0, 13) == '/bf4/servers/' && $('#serverbrowser-recommended-servers').length > 0) {
             $('#serverbrowser-recommended-servers').remove();
         }
-    }
+    },
+
+	removeAppAd: function (instance) {
+		if (instance.storage("option.remove-app-promotion") && window.location.pathname.substr(0, 5) == '/bf4/' && $('#app-promotion').length > 0) {
+			$('#app-promotion').remove();
+		}
+	}
 });
