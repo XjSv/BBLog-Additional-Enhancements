@@ -28,7 +28,7 @@ BBLog.handle("add.plugin", {
 	translations: {
 		"en": {
 			"option.remove-buy-battlepacks": "Remove the 'BUY BATTLEPACKS' box in the Battlepacks page",
-			"option.remove-buy-battlepacks.tooltip": "Removes the 'BUY BATTLEPACKS' box above the 'UPCOMING RANK BATTLEPACKS' box in the Battlepacks page.",
+			"option.remove-buy-battlepacks.tooltip": "Removes the 'BUY BATTLEPACKS' and 'What's Battlepacks' boxes above/below the 'UPCOMING RANK BATTLEPACKS' box in the Battlepacks page.",
 			"option.remove-tiles": "Remove the tiles below the 'TOP STORY' in the landing page",
 			"option.remove-tiles.tooltip": "Removes the tiles below the 'TOP STORY' in the landing page (battlelog.battlefield.com/bf4/).",
 			"option.remove-side-bar": "Remove the right sidebar in the landing page",
@@ -48,7 +48,7 @@ BBLog.handle("add.plugin", {
 		},
 		"de": {
 			"option.remove-buy-battlepacks": "Entferne 'Battlepacks kaufen' von Battlepack Seite",
-			"option.remove-buy-battlepacks.tooltip": "Entfernt die 'Battlepack kaufen' Box von der Battlepack Seite.",
+			"option.remove-buy-battlepacks.tooltip": "Entfernt die 'Battlepack kaufen' und 'Was sind Battlepacks' Boxen von der Battlepack Seite.",
 			"option.remove-tiles": "Entferne die Boxen unter der Top Story",
 			"option.remove-tiles.tooltip": "Entfernt die Boxen (Empfohlener Server, Platoon, Missionen etc.) von der Startseite (battlelog.battlefield.com/bf4/).",
 			"option.remove-side-bar": "Entferne rechte Seitenleiste auf der Startseite",
@@ -98,8 +98,11 @@ BBLog.handle("add.plugin", {
 
 	removeBuyBattlePacks: function (instance) {
 		var url = window.location.href;
-		if (instance.storage("option.remove-buy-battlepacks") && url.match(/\/battlepacks\//) && $(".battlepacks-buypacks").length > 0) {
-			$(".battlepacks-buypacks").remove();
+		if (instance.storage("option.remove-buy-battlepacks") && url.match(/\/battlepacks\//)) {
+			if ($(".battlepacks-buypacks").length > 0)
+				$(".battlepacks-buypacks").remove();
+			if ($("#what-is-battlebacks-box").length > 0)
+				$("#what-is-battlebacks-box").remove();
 		}
 	},
 
